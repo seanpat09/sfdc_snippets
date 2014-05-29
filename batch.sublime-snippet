@@ -1,0 +1,56 @@
+<snippet>
+    <content><![CDATA[
+global class ${1:title} implements Database.Batchable<SObject>, Database.Stateful, Schedulable
+{
+    public static final String BATCH_JOB_TITLE = '';
+    @TestVisible String errors;
+    String query;
+
+    global ${1:title}()
+    {
+        this.query = 'SELECT Id FROM ${2:sObject}';
+        this.errors = '';
+    }
+
+    global Database.QueryLocator start(Database.BatchableContext bc)
+    {
+        return Database.getQueryLocator( this.query );
+    }
+
+    global void execute(Database.BatchableContext bc, List<SObject> scope)
+    {
+        if( scope.isEmpty() ) return;
+        List<${2:sObject}> ${3:sObjects} = (List<${2:sObject}>) scope;
+    }
+
+    global void finish(Database.BatchableContext bc)
+    {
+        if( this.errors != '' )
+        {
+            AsyncApexJob job = [SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email
+                                FROM AsyncApexJob
+                                WHERE Id = :bc.getJobId()];
+
+            Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+
+            mail.setToAddresses(new String[] {job.CreatedBy.Email});
+            mail.setSaveAsActivity( false );
+            mail.setSubject(BATCH_JOB_TITLE + job.Status);
+
+            String emailBody = BATCH_JOB_TITLE + ' processed ' + job.TotalJobItems + ' batches with '+ job.NumberOfErrors + ' failures.';
+            emailBody += '\n\n\nThe following errors occured:\n'+ errors;
+
+            mail.setPlainTextBody(emailBody);
+            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+        }
+    }
+
+    global void execute(SchedulableContext sc)
+    {
+        ${1:title} theBatch = new ${1:title}();
+        Database.executeBatch( theBatch );
+    }
+}
+]]></content>
+    <tabTrigger>$batchTemplate</tabTrigger>
+</snippet>

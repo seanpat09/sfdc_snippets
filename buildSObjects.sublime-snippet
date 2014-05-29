@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+public static List<${1:sObject}> build${2:sObjects}( Integer numOf${2:sObjects} )
+{
+    List<${1:sObject}> test${2:sObjects} = new List<${1:sObject}>();
+    for( Integer i = 0; i < numOf${2:sObjects}; i++ )
+    {
+        test${2:sObjects}.add( new ${1:sObject} () );
+    }
+    return test${2:sObjects};
+}
+]]></content>
+	<tabTrigger>$build+</tabTrigger>
+</snippet>

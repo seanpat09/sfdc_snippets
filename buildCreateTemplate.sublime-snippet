@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+public static ${1:sObject} build${2:variableName}()
+{
+    return build${2:variableName}s(1)[0];
+}
+
+public static ${1:sObject} create${2:variableName}()
+{
+    return create${2:variableName}s(1)[0];
+}
+
+public static List<${1:sObject}> build${2:variableName}s( Integer numOf${2:variableName}s )
+{
+    List<${1:sObject}> test${2:variableName}s = new List<${1:sObject}>();
+    for( Integer i = 0; i < numOf${2:variableName}s; i++ )
+    {
+        test${2:variableName}s.add( new ${1:sObject}() );
+    }
+    return test${2:variableName}s;
+}
+
+public static List<${1:sObject}> create${2:variableName}s( Integer numOf${2:variableName}s )
+{
+    List<${1:sObject}> test${2:variableName}s = build${2:variableName}s( numOf${2:variableName}s );
+    insert test${2:variableName}s;
+    return test${2:variableName}s;
+}
+]]></content>
+	<tabTrigger>$buildCreate</tabTrigger>
+</snippet>

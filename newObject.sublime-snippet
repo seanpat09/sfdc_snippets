@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[
+${1:objectType} ${2:varName} = new ${1:objectType}();
+]]></content>
+	<tabTrigger>$newObject</tabTrigger>
+</snippet>

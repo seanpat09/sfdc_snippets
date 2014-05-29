@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    (function($j){
+        "use strict";
+        $j(document).ready( function() {
+            $j('.brandPrimaryFgr').each( function(){ 
+                if( $j(this).text() === 'Hide Opportunity Submit For Approval' ) {
+                    $j(this).parent().parent().hide();
+                }
+            });
+            if(window.location.href.indexOf(".com/006") != -1){
+                $j("input[name='piSubmit']").hide();
+            }
+        });
+    }(jQuery));
+</script>
+]]></content>
+</snippet>

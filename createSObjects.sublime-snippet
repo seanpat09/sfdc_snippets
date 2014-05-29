@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+public static List<${1:sObject}> create${2:sObjects}( Integer numOf${2:sObjects} )
+{
+    List<${1:sObject}> test${2:sObjects} = build${2:sObjects}( numOf${2:sObjects} );
+    insert test${2:sObjects};
+    return test${2:sObjects};
+}
+]]></content>
+	<tabTrigger>$create+</tabTrigger>
+</snippet>

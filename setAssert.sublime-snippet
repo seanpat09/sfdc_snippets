@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+System.assert( ${1:expected}.containsAll( ${2:actual} ), 'Only the ${3:message}' );
+System.assert( ${2:actual}.containsAll( ${1:expected} ), 'All of the ${3:message}' );
+]]></content>
+	<tabTrigger>$setAssert</tabTrigger>
+</snippet>

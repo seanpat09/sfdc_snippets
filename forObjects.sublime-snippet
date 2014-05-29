@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+for( ${1:sObject} ${2:anObject} : ${3:sObjects} )
+{
+    
+}
+]]></content>
+	<tabTrigger>$forObject</tabTrigger>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+public static ${1:sObject} build${2:sObject}()
+{
+    return build${2:sObjects}s(1)[0];
+}
+]]></content>
+	<tabTrigger>$build</tabTrigger>
+</snippet>

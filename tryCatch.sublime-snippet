@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+try
+{
+    
+}
+catch( ${1:Exception} ${2:exVar} )
+{
+    
+}
+]]></content>
+	<tabTrigger>try</tabTrigger>
+</snippet>
