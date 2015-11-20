@@ -1,7 +1,6 @@
 <snippet>
 	<content><![CDATA[
-for( Integer i = 0; i < ${1:NUM}; i++ )
-{
+for( Integer i = 0; i < ${1:NUM}; i++ ){
     
 }
 ]]></content>
