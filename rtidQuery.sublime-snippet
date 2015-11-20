@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+[SELECT Id FROM RecordType WHERE sObjectType = '${1:sobjectName}' AND DeveloperName = '${2:devName}' ];
+]]></content>
+	<tabTrigger>$rtidQuery</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
