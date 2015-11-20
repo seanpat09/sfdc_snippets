@@ -1,11 +1,9 @@
 <snippet>
 	<content><![CDATA[
-try
-{
+try{
     
 }
-catch( ${1:Exception} ${2:exVar} )
-{
+catch( ${1:Exception} ${2:exVar} ){
     
 }
 ]]></content>
